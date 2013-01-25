@@ -98,3 +98,15 @@ exports.test_bad_version = function(test) {
     });
     test.waitUntilDone();
 };
+
+exports.test_entropy = function(test) {
+    var s = require("entropy").generateRandomBytesHex(3);
+    test.assertEqual(typeof(s), "string");
+    test.assertEqual(s.length, 6);
+    test.assert(/^[0-9a-f]{6}$/.test(s));
+};
+
+exports.test_add_entropy = function(test) {
+    gombot.addEntropy("random data", 1, "fake");
+    test.pass();
+};

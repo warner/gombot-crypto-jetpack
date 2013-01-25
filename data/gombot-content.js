@@ -1,6 +1,10 @@
 
 sjcl.beware["CBC mode is dangerous because it doesn't protect message integrity."]();
 
+function gombot_addEntropy(data, numBits, source) {
+    sjcl.random.addEntropy(data, numBits, source);
+}
+
 // strings are managed as sjcl.bitArray most everywhere.
 // sjcl.bitArray.concat(a,b) works, but a.concat(b) does not.
 // sjcl.bitArray.bitSlice(a, start, end) works, but is indexed by bit, not by

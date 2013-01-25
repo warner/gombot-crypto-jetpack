@@ -18,8 +18,6 @@ console = {log: function(m, m2) {dump(tostr(m));
 importScripts("sjcl-with-cbc.js");
 importScripts("gombot-content.js");
 
-sjcl.random.addEntropy("seed", 8*32, "fake");
-
 self.onmessage = function(m) {
     //console.log("onmessage");
     //console.log(m.data);
@@ -67,6 +65,11 @@ self.onmessage = function(m) {
                                              elapsed: (end-start)/1000}));
         }
     }
+
+    if (m.data.type == "add-entropy") {
+        gombot_addEntropy(m.data.data, m.data.numBits, m.data.source);
+    }
+
 };
 
 //console.log("worker.js loaded");

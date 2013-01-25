@@ -56,3 +56,8 @@ addon.port.on("decrypt", function(m) {
     worker.postMessage({type: "decrypt", reqID: m.reqID,
                         keys: m.keys, msgmac_b64: m.msgmac_b64});
 });
+
+addon.port.on("add-entropy", function(m) {
+    worker.postMessage({type: "add-entropy",
+                        data: m.data, numBits: m.numBits, source: m.source});
+});
