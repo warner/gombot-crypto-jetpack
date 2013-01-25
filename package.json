@@ -1,0 +1,9 @@
+{
+    "name": "gombot-crypto-jetpack", 
+    "license": "MPL 2.0", 
+    "author": "Brian Warner", 
+    "version": "0.1", 
+    "fullName": "gombot-crypto-jetpack", 
+    "main": "lib/main.js",
+    "description": "cryptographic functions (kdf/encrypt/decrypt) for Gombot"
+}
